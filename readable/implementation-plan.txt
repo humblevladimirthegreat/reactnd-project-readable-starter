@@ -1,0 +1,81 @@
+MODELS
+Post
+- id
+- timestamp
+- title
+- body
+- author
+- category
+Comment
+- id
+- timestamp
+- body
+- author
+- parentId
+
+ACTIONS
+getAllPosts
+changeSort
+  - sortBy
+  - descending
+getCategories
+getCategoryPosts
+  - category
+
+addNewPost
+  - post
+viewPost
+  - id
+upvotePost
+  - id
+downvotePost
+  - id
+editPost
+  - post
+deletePost
+  - id
+getPostComments
+  - id
+
+addNewComment
+  - comment
+upvoteComment
+  - id
+downvoteComment
+  - id
+editComment
+  - comment
+deleteComment
+  - id
+
+REDUCERS
+PageReducer
+  - state = {posts: [], sortBy: 'score', descending: true, category: ''}
+PostReducer
+  - state = {currentPost:{}, comments: []}
+CommentReducer
+  - state = {currentComment:{}}
+
+COMPONENTS
+PageComponent - lists posts (optionally sorts or filters by category)
+  - heading
+  - posts
+CategoryComponent - fetches list of categories to be selected from
+PostComponent - shows an individual post with comments, has addNewComment
+  - post
+WritePostComponent - handles creating new posts or editing existing ones
+  - post?
+CommentComponent - shows a comment
+  - comment
+WriteCommentComponent - handles creating new comments or editing existing ones
+  - comment?
+
+PLAN
+show all posts
+view individual posts (without comments)
+show all comments on post
+allow writing new comments
+allow writing new posts
+allow sorting/filtering posts
+allow editing/deleting posts
+allow editing/deleting comments
