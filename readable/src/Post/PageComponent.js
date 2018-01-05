@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 export default function PageComponent ({ posts }) {
   return (
@@ -13,6 +14,10 @@ export default function PageComponent ({ posts }) {
             <p>{post.body}</p>
             <i>by {post.author}</i><br/>
             on <b>{''+new Date(post.timestamp)}</b>
+            <Link
+              to={`/post/${post.id}`}
+              className="post-link"
+            >View Post</Link>
           </li>
         ))}
       </ul>

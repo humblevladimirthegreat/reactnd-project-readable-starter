@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Route, Link, Switch} from 'react-router-dom'
 import PageComponent from './Post/PageComponent'
 import * as PostAPI from './Post/PostAPI'
 import logo from './logo.svg';
@@ -33,7 +34,19 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Readable</h1>
         </header>
-        <PageComponent posts={posts} />
+        <Switch>
+          <Route exact path="/" render={() => (
+            <PageComponent posts={posts} />
+          )} />
+          {/* <Route exact path="/search" render={() => (
+            <SearchComponent
+              updateShelf={this.updateShelf}
+              booksOnShelves={this.state.books}
+            />
+          )} /> */}
+          {/* <Route component={MissingPageComponent}/> */}
+      </Switch>
+
       </div>
     );
   }
