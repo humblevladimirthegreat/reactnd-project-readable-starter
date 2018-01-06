@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Route, Link, Switch} from 'react-router-dom'
 import PageComponent from './Post/PageComponent'
 import PostComponent from './Post/PostComponent'
-import * as PostAPI from './Post/PostAPI'
+import * as BackendAPI from './BackendAPI'
 import logo from './logo.svg';
 import './App.css';
 
@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   retrievePosts(){
-    PostAPI.getAll().then((posts) => {
+    BackendAPI.getAllPosts().then((posts) => {
       this.setState({ posts: posts || []})
       console.log("posts = "+posts)
     }).catch((e) => {
