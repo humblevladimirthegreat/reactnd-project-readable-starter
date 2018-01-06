@@ -17,6 +17,14 @@ export const getAllPosts = () =>
   fetch(`${api}/posts`, { headers })
     .then(res => res.json())
     .then(data => {
-      console.log("returned data from getAll = "+JSON.stringify(data));
+      // console.log("returned data from getAll = "+JSON.stringify(data));
+      return data
+    })
+
+export const getCommentsByPost = (postId) =>
+  fetch(`${api}/posts/${postId}/comments`, { headers })
+    .then(res => res.json())
+    .then(data => {
+      console.log("returned data from getCommentsByPost = "+JSON.stringify(data));
       return data
     })
