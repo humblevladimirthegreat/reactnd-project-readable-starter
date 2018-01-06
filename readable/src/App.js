@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Route, Link, Switch} from 'react-router-dom'
 import PageComponent from './Post/PageComponent'
+import PostComponent from './Post/PostComponent'
 import * as PostAPI from './Post/PostAPI'
 import logo from './logo.svg';
 import './App.css';
@@ -38,12 +39,15 @@ class App extends Component {
           <Route exact path="/" render={() => (
             <PageComponent posts={posts} />
           )} />
-          {/* <Route exact path="/search" render={() => (
-            <SearchComponent
-              updateShelf={this.updateShelf}
-              booksOnShelves={this.state.books}
+          <Route path="/post/:id" render={(result) => {
+            const id = result.match.params.id;
+            const post = posts.find((post) => post.id === id)
+            console.log(`found post=${post}`)
+            return (
+            <PostComponent
+              post={post} //TODO: raise error if ID not found
             />
-          )} /> */}
+          )}} />
           {/* <Route component={MissingPageComponent}/> */}
       </Switch>
 
