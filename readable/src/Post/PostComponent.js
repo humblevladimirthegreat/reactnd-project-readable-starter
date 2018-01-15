@@ -20,3 +20,19 @@ export default function PostComponent ({ post }) {
     </div>
   )
 }
+
+const SHOW_POSTS = 'SHOW_POSTS';
+const VIEW_POST = 'VIEW_POST';
+//
+// function postReducer(state, action) {
+//   switch (action.type) {
+//   case SHOW_POSTS:
+//     return {
+//       ...state,
+//       [day]: {
+//         ...state[day],
+//         [meal]: recipe.label
+//       }
+//     }
+//   }
+// }
