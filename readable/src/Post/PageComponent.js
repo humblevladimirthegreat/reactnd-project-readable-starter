@@ -11,7 +11,7 @@ export function PageComponent ({ posts }) {
         Posts
       </h3>
       <ul>
-        {posts.map((post) => (
+        {(posts || []).map((post) => (
           <li className='post' key={post.id}>
             <h3>{post.title}</h3>
             <p>{post.body}</p>
