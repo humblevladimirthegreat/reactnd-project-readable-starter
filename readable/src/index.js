@@ -8,6 +8,7 @@ import ReduxThunk from 'redux-thunk'
 
 import './index.css';
 import App from './App';
+import reducePageActions from './Post/PageReducer'
 
 const logger = store => next => action => {
   console.group(action.type)
@@ -21,7 +22,7 @@ const logger = store => next => action => {
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 const allReducers = combineReducers({
-
+  reducePageActions
 })
 
 const store = createStore(
