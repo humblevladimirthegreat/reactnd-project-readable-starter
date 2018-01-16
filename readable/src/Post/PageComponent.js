@@ -1,7 +1,10 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import {allPostsActionCreator} from './PageAction'
+import {connect} from 'react-redux'
 
-export default function PageComponent ({ posts }) {
+export function PageComponent ({ posts }) {
+  // const posts = this.props.posts
   return (
     <div className='post-list'>
       <h3 className='subheader'>
@@ -24,3 +27,16 @@ export default function PageComponent ({ posts }) {
     </div>
   )
 }
+
+function mapStateToProps({posts}) {
+  return {
+    posts
+  }
+}
+
+function mapDispatchToProps(dispatch){
+  return {
+    allPosts: () => dispatch(allPostsActionCreator())
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(PageComponent)

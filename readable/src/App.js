@@ -9,23 +9,23 @@ import './App.css';
 class App extends Component {
 
   state = {
-    posts: [],
+    // posts: [],
     error: '',
   }
 
-  retrievePosts(){
-    BackendAPI.getAllPosts().then((posts) => {
-      this.setState({ posts: posts || []})
-      console.log("posts = "+posts)
-    }).catch((e) => {
-      this.setState({error: "Error -- "+e});
-      console.log('error:', e);
-    });
-}
-
-  componentDidMount() {
-    this.retrievePosts();
-  }
+//   retrievePosts(){
+//     BackendAPI.getAllPosts().then((posts) => {
+//       this.setState({ posts: posts || []})
+//       console.log("posts = "+posts)
+//     }).catch((e) => {
+//       this.setState({error: "Error -- "+e});
+//       console.log('error:', e);
+//     });
+// }
+//
+//   componentDidMount() {
+//     this.retrievePosts();
+//   }
 
   render() {
     const { posts } = this.state
@@ -37,9 +37,9 @@ class App extends Component {
         </header>
         <Switch>
           <Route exact path="/" render={() => (
-            <PageComponent posts={posts} />
+            <PageComponent />
           )} />
-          <Route path="/post/:id" render={(result) => {
+          {/* <Route path="/post/:id" render={(result) => {
             const id = result.match.params.id;
             const post = posts.find((post) => post.id === id)
             console.log(`found post=${post}`)
@@ -47,7 +47,7 @@ class App extends Component {
             <PostComponent
               post={post} //TODO: raise error if ID not found
             />
-          )}} />
+          )}} /> */}
           {/* <Route component={MissingPageComponent}/> */}
       </Switch>
 
